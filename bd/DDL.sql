@@ -1,0 +1,48 @@
+CREATE DATABASE czbooks;
+
+USE czbooks;
+
+CREATE TABLE TiposUsuario
+(
+	IdTipoUsuario		INT PRIMARY KEY IDENTITY,
+	Tipo				VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Usuario
+(
+	IdUsuario			INT PRIMARY KEY IDENTITY,
+	IdTipoUsuario		INT FOREIGN KEY REFERENCES TiposUsuario (IdTipoUsuario) NOT NULL,
+	Email				VARCHAR(150) NOT NULL,
+	Senha				VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Autor
+(
+	IdAutor			INT PRIMARY KEY IDENTITY,
+	Nome				VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Livro
+(
+	IdLivro			INT PRIMARY KEY IDENTITY,
+	IdAutor				INT FOREIGN KEY REFERENCES Autor (IdAutor) NOT NULL,
+	IdCategoria			INT FOREIGN KEY REFERENCES Categoria (IdCategoria) NOT NULL,
+	Titulo				VARCHAR(150) NOT NULL,
+	Sinopse				VARCHAR(500) NOT NULL,
+	dataPubli			VARCHAR(150) NOT NULL,
+	Preco				DECIMAL NOT NULL,	
+);
+
+CREATE TABLE Categoria
+(
+	IdCategoria			INT PRIMARY KEY IDENTITY,
+	Nome				VARCHAR(150) NOT NULL,	
+);
+
+
+CREATE TABLE Instituicao
+(
+	IdInst		INT PRIMARY KEY IDENTITY,
+	Nome				VARCHAR(150) NOT NULL,
+	Endereco			VARCHAR(300) NOT NULL,
+);
