@@ -21,14 +21,10 @@ namespace CZBooks_WebAPI.Interfaces
         /// Cadastra um novo evento
         /// </summary>
         /// <param name="novoEvento">Objeto novoEvento que será cadastrado</param>
-        void Cadastrar(Autor novoEvento);
+        void Cadastrar(Autor novoAutor);
 
-        /// <summary>
-        /// Atualiza um evento existente
-        /// </summary>
-        /// <param name="id">ID do evento que será atualizado</param>
-        /// <param name="eventoAtualizado">Objeto com as novas informações</param>
-        void Atualizar(int id, Autor eventoAtualizado);
+   
+        void Atualizar(int id, Autor autorAtualizado);
 
         /// <summary>
         /// Deleta um evento existente

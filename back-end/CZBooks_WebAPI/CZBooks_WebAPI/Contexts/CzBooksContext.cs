@@ -20,16 +20,15 @@ namespace CZBooks_WebAPI.Contexts
 
         public virtual DbSet<Autor> Autors { get; set; }
         public virtual DbSet<Categorium> Categoria { get; set; }
-        public virtual DbSet<Instituição> Instituiçãos { get; set; }
-        public virtual DbSet<Livro> Livros { get; set; }
-        public virtual DbSet<TiposUsuario> TiposUsuarios { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Instituicao> Instituicao { get; set; }
+        public virtual DbSet<Livro> Livro { get; set; }
+        public virtual DbSet<TiposUsuario> TiposUsuario { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-15OF2LT; initial catalog=CzBooks; Integrated Security=True");
             }
         }
@@ -62,7 +61,7 @@ namespace CZBooks_WebAPI.Contexts
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Instituição>(entity =>
+            modelBuilder.Entity<Instituicao>(entity =>
             {
                 entity.HasKey(e => e.IdInst)
                     .HasName("PK__Institui__507097C1162E6597");
