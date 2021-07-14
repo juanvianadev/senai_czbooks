@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CZBooks_WebAPI.Interfaces
 {
-        interface ITiposUsuarioRepository
-        {
+    interface ITiposUsuarioRepository
+    {
          
             List<TiposUsuario> Listar();
 

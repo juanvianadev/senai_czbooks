@@ -22,7 +22,7 @@ namespace CZBooks_WebAPI.Controllers
 
         public TiposUsuarioController()
         {
-            _tiposUsuarioRepository = new TiposUsuarioRepository();
+            _tiposUsuarioRepository = new TipoUsuarioRepository();
         }
 
         [HttpGet]
@@ -89,10 +89,9 @@ namespace CZBooks_WebAPI.Controllers
         {
             try
             {
-                // Faz a chamada para o método
+      
                 _tiposUsuarioRepository.Deletar(id);
 
-                // Retorna um status code
                 return StatusCode(204);
             }
             catch (Exception ex)

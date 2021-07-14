@@ -14,9 +14,86 @@ namespace CZBooks_WebAPI.Controllers
     [ApiController]
 
     [Authorize(Roles = "1")]
-    public class AutorController
+    public class AutorController : ControllerBase
     {
+        private IAutorRepository _autorRepository { get; set; }
 
+        public AutorController()
+        {
+            _autorRepository = new AutorRepository();
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_autorRepository.Listar());
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                return Ok(_autorRepository.BuscarPorId(id));
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Post(Autor novoAutor)
+        {
+            try
+            {
+                _autorRepository.Cadastrar(novoAutor);
+
+                return StatusCode(201);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Autor autorAtualizado)
+        {
+            try
+            {
+                _autorRepository.Atualizar(id, autorAtualizado);
+
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _autorRepository.Deletar(id);
+
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
 
     }
 }

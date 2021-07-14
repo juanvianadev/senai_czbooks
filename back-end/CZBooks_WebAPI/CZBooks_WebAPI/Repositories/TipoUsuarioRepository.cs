@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CZBooks_WebAPI.Repositories
 {
-    public class TiposUsuarioRepository : ITipoUsuarioRepository
+    public class TipoUsuarioRepository : ITiposUsuarioRepository
     {
         CzBooksContext ctx = new CzBooksContext();
 
